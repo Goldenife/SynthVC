@@ -5,7 +5,6 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-
   <!-- Begin Jekyll SEO tag v2.7.1 -->
   <title>DistilVC: Leveraging Synthetic Data for End-to-End Low Latency Streaming Voice Conversion</title>
   <meta name="generator" content="Jekyll v3.9.0">
@@ -23,8 +22,6 @@
   <section class="page-header">
     <!-- <h1 class="project-name">Demo PAGE</h1> -->
     <!-- <h2 class="project-tagline"></h2> -->
-
-
   </section>
 
   <section class="main-content">
@@ -32,15 +29,14 @@
       <center>DistilVC: Leveraging Synthetic Data for End-to-End Low Latency Streaming Voice Conversion</center>
     </h1>
 
-<!--     <center>Ziqian Ning<sup>1, 2</sup>, Shuai Wang<sup>3</sup>, Pengcheng Zhu<sup>2</sup>, Zhichao Wang<sup>1</sup>, Jixun Yao<sup>1</sup>, Lei Xie<sup>1</sup>, Mengxiao Bi<sup>2</sup></center> -->
-<!--     <center><a href="http://www.npu-aslp.org"><sup>1</sup>Audio, Speech and Language Processing Group (ASLP@NPU), School of Computer Science,</br>Northwestern Polytechnical University, Xi'an, China </a></center> -->
-<!--     <center><a href="https://fuxi.163.com/laboratory"><sup>2</sup>Fuxi AI Lab, NetEase Inc., Hangzhou, China </a></center> -->
-<!--     <center><a href="http://www.sribd.cn/en"><sup>3</sup>Shenzhen Research Institute of Big Data,</br>The Chinese University of Hong Kong, Shenzhen (CUHK-Shenzhen), China</a></center> -->
+    <!-- <center>Ziqian Ning<sup>1, 2</sup>, Shuai Wang<sup>3</sup>, Pengcheng Zhu<sup>2</sup>, Zhichao Wang<sup>1</sup>, Jixun Yao<sup>1</sup>, Lei Xie<sup>1</sup>, Mengxiao Bi<sup>2</sup></center> -->
+    <!-- <center><a href="http://www.npu-aslp.org"><sup>1</sup>Audio, Speech and Language Processing Group (ASLP@NPU), School of Computer Science,</br>Northwestern Polytechnical University, Xi'an, China </a></center> -->
+    <!-- <center><a href="https://fuxi.163.com/laboratory"><sup>2</sup>Fuxi AI Lab, NetEase Inc., Hangzhou, China </a></center> -->
+    <!-- <center><a href="http://www.sribd.cn/en"><sup>3</sup>Shenzhen Research Institute of Big Data,</br>The Chinese University of Hong Kong, Shenzhen (CUHK-Shenzhen), China</a></center> -->
 
     <br><br>
     <h2 id="abstract">1. Abstract<a name="abstract"></a></h2>
-    <p>Voice Conversion (VC) modifies a speaker's timbre while preserving linguistic content. While showing effectiveness in speaker similarity and robutness, most existing VC models face challenges in real-time scenarios which require low-lantency streaming capabilities. Streaming VC models typically use automatic speech recognition (ASR) models to extract linguistic content or rely on speaker representation disentanglement (SRD) techniques. However, these methods often suffer from timbre leakage, high computational latency, and compromised speech naturalness. To address these limitations, we present DistilVC, a streaming end-to-end voice conversion framework that establishes direct timbre mapping between source and target speakers. Our method eliminates the reliance on complex disentanglement design through the utilization of synthetic parallel training data. Experimental results demonstrate that DistilVC achieves low latency and outperforms existing systems in both naturalness and speaker similarity. To facilitate reproducibility and community advancement, we will release the complete implementation code and pre-trained models upon publication.
-    </p>
+    <p>Voice Conversion (VC) modifies a speaker's timbre while preserving linguistic content. While showing effectiveness in speaker similarity and robustness, most existing VC models face challenges in real-time scenarios which require low-latency streaming capabilities. Streaming VC models typically use automatic speech recognition (ASR) models to extract linguistic content or rely on speaker representation disentanglement (SRD) techniques. However, these methods often suffer from timbre leakage, high computational latency, and compromised speech naturalness. To address these limitations, we present DistilVC, a streaming end-to-end voice conversion framework that establishes direct timbre mapping between source and target speakers. Our method eliminates the reliance on complex disentanglement design through the utilization of synthetic parallel training data. Experimental results demonstrate that DistilVC achieves low latency and outperforms existing systems in both naturalness and speaker similarity. To facilitate reproducibility and community advancement, we will release the complete implementation code and pre-trained models upon publication.</p>
 
     <table frame=void rules=none>
       <tr>
@@ -51,7 +47,7 @@
     </table>
     <br><br>
 
-<!--     <h2>2. Computational Metrics</h2>
+    <!-- <h2>2. Computational Metrics</h2>
     <ul>
       <table>
   <tbody>
@@ -111,7 +107,7 @@
     <col>
   </colgroup>
 </table>
-    </ul>
+    </ul> -->
 
     <h2>3. Demo<a name="Comparison"></a></h2>
     <ul>
@@ -132,11 +128,9 @@
     </br>
     <cite>[2] D. Wang, L. Deng, Y. T. Yeung, X. Chen, X. Liu, and H. Meng, “VQMIVC: vector quantization and mutual information-based unsupervised speech representation disentanglement for one-shot voice conversion,” in Proc. INTERSPEECH. ISCA, 2021, pp. 1344–1348.</cite>
   </section>
-</body> -->
+</body>
 
-</html>
-
-<!-- <script type="" text/javascript>
+<!-- <script type="text/javascript">
   window.onload = function () {
     let scenes = ["Clean"]
     let speakers = ["female", "male"]
@@ -150,44 +144,3 @@
           <td style="text-align: center; width: 150px;" rowspan=2><strong>Source speech<strong></td>
           <td style="text-align: center; width: 150px;" colspan=5><strong>Method<strong></td>
         </tr>
-        <tr>
-        `
-    for (const id in models) {
-      model = models[id]
-      if (model == 'Baseline') {
-        model = 'IBF-VC'
-      }
-      sample_data += '<td style="text-align: center; width: 150px;" rowspan=1><strong>' + model + '<strong></td>'
-    }
-    sample_data += "</tr>"
-    console.log(sample_data)
-    
-    for (let x in scenes) {
-      let scene = scenes[x]
-      let scene_data = ""
-      scene_data += '<tr>'
-      //scene_data += '<td style="text-align: center; width: 150px;" rowspan=' + 8 + '><strong>' + scene + ' Source' + '<strong></td>'
-      let samples = all_samples[x]
-      console.log(scene, samples)
-      for (let y in speakers) {
-        speaker = speakers[y]
-        gender = genders[y]
-        scene_data += '<td style="text-align: center; width: 150px;" rowspan=10>' + gender + '<audio style="width: 150px;"controls="" src="raw/samples/speakers/' + speaker + '.wav"></td>'
-        for (let z in samples) {
-          if (z != 0) {
-            scene_data += '<tr>'
-          }
-          let sample = samples[z]
-          scene_data += '<td style="text-align: center"><audio style="width: 150px;" controls="" src="raw/samples/' + scene + '/source/' + sample + '"></audio></td>'
-          for (let w in models) {
-            let model = models[w]
-            scene_data += '<td style="text-align: center"><audio style="width: 150px;" controls="" src="raw/samples/' + scene + '/' + model + '/' + speaker + '/' + sample + '"></audio></td>'
-          }
-          scene_data += '</tr>'
-        }
-      }
-      sample_data += scene_data
-    }
-    document.getElementById('tbody').innerHTML = sample_data
-  } -->
-</script>
