@@ -141,7 +141,7 @@
     let sample_data = `
         <tr>
           <td style="text-align: center; width: 150px;" rowspan=2><strong>Source speech<strong></td>
-          <td style="text-align: center; width: 150px;" colspan=5><strong>Target Speaker<strong></td>
+          <td style="text-align: center; width: 150px;" colspan=6><strong>Target Speaker<strong></td>
         </tr>
         <tr>
         `
@@ -150,7 +150,8 @@
       // if (model == 'Baseline') {
       //   model = 'IBF-VC'
       // }
-      sample_data += '<td style="text-align: center; width: 150px;" rowspan=1><strong>' + speaker + '<strong></td>'
+      sample_data += '<td style="text-align: center; width: 150px;" rowspan=1>' + speaker + '<audio style="width: 150px;"controls="" src="raw/samples/speakers/' + speaker + '.wav"> + "</td>"
+                    //  '<td style="text-align: center; width: 150px;" rowspan=10>' + gender + '<audio style="width: 150px;"controls="" src="raw/samples/speakers/' + speaker + '.wav"></td>
     }
     sample_data += "</tr>"
     console.log(sample_data)
