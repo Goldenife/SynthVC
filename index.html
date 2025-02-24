@@ -109,30 +109,86 @@
 </table>
     </ul> -->
 
-<!--     <h2>3. Demo<a name="Comparison"></a></h2>
-    <ul>
+    <h2>3. Demo<a name="Comparison"></a></h2>
+    <!-- <ul>
       <li>DualVC2: Streaming mode of DualVC 2 [1].</li>
       <li>VQMIVC: Non-streaming mode of VQMIVC [2].</li>
       <li>VQMIVC-streaming: Streaming mode of VQMIVC.</li>
       <li>DualVC3-full: Full mode of DualVC 3.</li>
       <li>DualVC3-standalone: Standalone mode of DualVC 3.</li>
-    </ul>
+    </ul> -->
 
     <table>
       <tbody id="tbody">
       </tbody>
     </table> 
 
-    </br>
+    <!-- </br>
     <cite>[1] Z. Ning, Y. Jiang, P. Zhu, S. Wang, J. Yao, L. Xie, and M. Bi, “Dualvc 2: Dynamic masked convolution for unified streaming and non-streaming voice conversion,” in Proc. ICASSP. IEEE, 2024, pp. 1–5.</cite>
     </br>
-    <cite>[2] D. Wang, L. Deng, Y. T. Yeung, X. Chen, X. Liu, and H. Meng, “VQMIVC: vector quantization and mutual information-based unsupervised speech representation disentanglement for one-shot voice conversion,” in Proc. INTERSPEECH. ISCA, 2021, pp. 1344–1348.</cite>
+    <cite>[2] D. Wang, L. Deng, Y. T. Yeung, X. Chen, X. Liu, and H. Meng, “VQMIVC: vector quantization and mutual information-based unsupervised speech representation disentanglement for one-shot voice conversion,” in Proc. INTERSPEECH. ISCA, 2021, pp. 1344–1348.</cite> -->
   </section>
-</body> -->
+</body>
 
-<!-- <script type="text/javascript">
+<script type="" text/javascript>
   window.onload = function () {
-    let scenes = ["Clean"]
+    let scenes = ["aishell3"]
+    let speakers = ["female", "male"]
+    let genders = ["female", "male"]
+    let models = ["DualVC2", "VQMIVC", "VQMIVC-streaming", "DualVC3-full", "DualVC3-standalone"]
+    let all_samples = [["SSB00430070.wav", "SSB02460443.wav", "SSB03230482.wav", "SSB03410353.wav", "SSB03750317.wav", "SSB04700097.wav", "SSB05900051.wav", "SSB07100255.wav", "SSB07100388.wav", "SSB08170086.wav",], 
+                    ["SSB00430070.wav", "SSB02460443.wav", "SSB03230482.wav", "SSB03410353.wav", "SSB03750317.wav", "SSB04700097.wav", "SSB05900051.wav", "SSB07100255.wav", "SSB07100388.wav", "SSB08170086.wav",]]
+    let sample_data = `
+        <tr>
+          <td style="text-align: center; width: 150px;" rowspan=2><strong>Source speech<strong></td>
+          <td style="text-align: center; width: 150px;" colspan=5><strong>Target Speaker<strong></td>
+        </tr>
+        <tr>
+        `
+    for (const id in models) {
+      model = models[id]
+      if (model == 'Baseline') {
+        model = 'IBF-VC'
+      }
+      sample_data += '<td style="text-align: center; width: 150px;" rowspan=1><strong>' + model + '<strong></td>'
+    }
+    sample_data += "</tr>"
+    console.log(sample_data)
+    
+    // for (let x in scenes) {
+    //   let scene = scenes[x]
+    //   let scene_data = ""
+    //   scene_data += '<tr>'
+    //   //scene_data += '<td style="text-align: center; width: 150px;" rowspan=' + 8 + '><strong>' + scene + ' Source' + '<strong></td>'
+    //   let samples = all_samples[x]
+    //   console.log(scene, samples)
+    //   for (let y in speakers) {
+    //     speaker = speakers[y]
+    //     gender = genders[y]
+    //     // scene_data += '<td style="text-align: center; width: 150px;" rowspan=10>' + gender + '<audio style="width: 150px;"controls="" src="raw/samples/speakers/' + speaker + '.wav"></td>'
+    //     for (let z in samples) {
+    //       if (z != 0) {
+    //         scene_data += '<tr>'
+    //       }
+    //       let sample = samples[z]
+    //       scene_data += '<td style="text-align: center"><audio style="width: 150px;" controls="" src="raw/samples/' + scene + '/source/' + sample + '"></audio></td>'
+    //       for (let w in models) {
+    //         let model = models[w]
+    //         scene_data += '<td style="text-align: center"><audio style="width: 150px;" controls="" src="raw/samples/' + scene + '/' + model + '/' + speaker + '/' + sample + '"></audio></td>'
+    //       }
+    //       scene_data += '</tr>'
+    //     }
+    //   }
+    //   sample_data += scene_data
+    // }
+    document.getElementById('tbody').innerHTML = sample_data
+  }
+</script>
+
+
+<!-- <script type="" text/javascript>
+  window.onload = function () {
+    let scenes = ["aishell3"]
     let speakers = ["female", "male"]
     let genders = ["female", "male"]
     let models = ["DualVC2", "VQMIVC", "VQMIVC-streaming", "DualVC3-full", "DualVC3-standalone"]
@@ -144,3 +200,44 @@
           <td style="text-align: center; width: 150px;" rowspan=2><strong>Source speech<strong></td>
           <td style="text-align: center; width: 150px;" colspan=5><strong>Method<strong></td>
         </tr>
+        <tr>
+        `
+    for (const id in models) {
+      model = models[id]
+      if (model == 'Baseline') {
+        model = 'IBF-VC'
+      }
+      sample_data += '<td style="text-align: center; width: 150px;" rowspan=1><strong>' + model + '<strong></td>'
+    }
+    sample_data += "</tr>"
+    console.log(sample_data)
+    
+    for (let x in scenes) {
+      let scene = scenes[x]
+      let scene_data = ""
+      scene_data += '<tr>'
+      //scene_data += '<td style="text-align: center; width: 150px;" rowspan=' + 8 + '><strong>' + scene + ' Source' + '<strong></td>'
+      let samples = all_samples[x]
+      console.log(scene, samples)
+      for (let y in speakers) {
+        speaker = speakers[y]
+        gender = genders[y]
+        scene_data += '<td style="text-align: center; width: 150px;" rowspan=10>' + gender + '<audio style="width: 150px;"controls="" src="raw/samples/speakers/' + speaker + '.wav"></td>'
+        for (let z in samples) {
+          if (z != 0) {
+            scene_data += '<tr>'
+          }
+          let sample = samples[z]
+          scene_data += '<td style="text-align: center"><audio style="width: 150px;" controls="" src="raw/samples/' + scene + '/source/' + sample + '"></audio></td>'
+          for (let w in models) {
+            let model = models[w]
+            scene_data += '<td style="text-align: center"><audio style="width: 150px;" controls="" src="raw/samples/' + scene + '/' + model + '/' + speaker + '/' + sample + '"></audio></td>'
+          }
+          scene_data += '</tr>'
+        }
+      }
+      sample_data += scene_data
+    }
+    document.getElementById('tbody').innerHTML = sample_data
+  }
+</script> -->
