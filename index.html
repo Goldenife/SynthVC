@@ -167,12 +167,14 @@
       for (let y in samples) {
         let sample = samples[y]
         // speaker = speakers[y]
-        scene_data += '<td style="text-align: center"><audio style="width: 150px;" controls="" src="raw/samples/aishell3/source' + sample + '.wav"></td>'
+        scene_data += '<tr>'
+        scene_data += '<td style="text-align: center"><audio style="width: 150px;" controls="" src="raw/samples/' + scene + '/source/' + sample + '.wav"></td>'
         // scene_data += '<td style="text-align: center"><audio style="width: 150px;" controls="" src="raw/samples/' + scene + '/source/' + sample + '"></audio></td>'
+        
         for (let z in speakers) {
-          if (z != 0) {
-            scene_data += '<tr>'
-          }
+          // if (z != 0) {
+          //   scene_data += '<tr>'
+          // }
           speaker = speakers[z]
           // scene_data += '<td style="text-align: center"><audio style="width: 150px;" controls="" src="raw/samples/' + scene + '/source/' + sample + '"></audio></td>'
           // for (let w in models) {
