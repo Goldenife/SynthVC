@@ -30,7 +30,7 @@
     </h1>
 
     <br><br>
-    <h2 id="abstract" style="text-align: center;">1. Abstract<a name="abstract"></a></h2>
+    <h2 id="abstract" style="text-align: center;">Abstract<a name="abstract"></a></h2>
     <p style="text-align: justify;">Voice Conversion (VC) modifies a speaker's timbre while preserving linguistic content. While showing effectiveness in speaker similarity and robustness, most existing VC models face challenges in real-time scenarios which require low-latency streaming capabilities. Streaming VC models typically use automatic speech recognition (ASR) models to extract linguistic content or rely on speaker representation disentanglement (SRD) techniques. However, these methods often suffer from timbre leakage, high computational latency, and compromised speech naturalness. To address these limitations, we present SynthVC, a streaming end-to-end voice conversion framework that establishes direct timbre mapping between source and target speakers. Our method eliminates the reliance on complex disentanglement design through the utilization of synthetic parallel training data. Experimental results demonstrate that SynthVC achieves low latency and outperforms existing systems in both naturalness and speaker similarity. To facilitate reproducibility and community advancement, we will release the complete implementation code and pre-trained models upon publication.</p>
 
     <table frame=void rules=none>
@@ -104,7 +104,8 @@
 </table>
     </ul> -->
 
-    <h2 style="text-align: center;">2. Demo<a name="Comparison"></a></h2>
+    <h2 style="text-align: center;">Demo<a name="Comparison"></a></h2>
+    <p style="text-align: justify;">Here’s a synthesized sample of SynthVC streaming conversion. The source speech comes from a test set reserved before training, while the target speaker is randomly selected from the Aishell3 dataset.</p>
 
     <table style="display: flex; justify-content: center;">
       <tbody id="tbody">
@@ -191,7 +192,7 @@
     let sample_data = `
         <tr>
           <td style="text-align: center; width: 150px;" rowspan=2><strong>Target Speaker<strong></td>
-          <td style="text-align: center; width: 150px;" rowspan=2><strong>Source speech<strong></td>
+          <td style="text-align: center; width: 150px;" rowspan=2><strong>Source Speech<strong></td>
           <td style="text-align: center; width: 150px;" colspan=5><strong>Method<strong></td>
         </tr>
         <tr>
